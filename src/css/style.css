@@ -6,7 +6,7 @@ html,body{
 }
 /*禁止横屏样式开始*/
 .appSize{display:none;position:fixed;left:0;top:0;right:0;bottom:0;background:#182035;z-index:9999;}
-.appSize .appSize_box{position:absolute;left:0;right:0;top:10%;height:70%;text-align:center;transform:rotate(-90deg);}
+.appSize .appSize_box{position:absolute;left:0;right:0;top:10%;height:70%;text-align:center;transform:rotate(90deg);}
 .appSize .appSize_box .appSize_img{width:100%;height:100%;float:left;background:url(http://static.ilongyuan.cn/ld/jcyf_web/images/appSize_img.png) center no-repeat;
     background-size:auto 80%;animation:mymove 3s infinite;-webkit-animation:mymove 3s infinite;}
 .appSize .appSize_txt{position:absolute;left:0;right:0;top:80%;color:#fff;text-align:center;font-size:.16em;line-height:1.6;}

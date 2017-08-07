@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<link rel="stylesheet" href="./src/css/style.css">
 </head>
 <body>
-	<div id="container">
-	    <H1>This text is always in Landscape Mode</H1>
+	<div class="container">
+		
 	</div>
+	<!-- 屏幕旋转遮罩 -->
+	<div class="appSize">
+        <div class="appSize_box">
+            <div class="appSize_img"></div>
+        </div>
+        <div class="appSize_txt">为了更好地体验，请设备横过来</div>
+    </div>
+	<script src="./src/js/jquery-3.2.1.min.js"></script>
 	<script src="./src/js/script.js"></script>
 </body>
 </html>

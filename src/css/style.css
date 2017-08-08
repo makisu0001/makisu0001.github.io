@@ -5,7 +5,7 @@ html,body{
   height: 100%;
 }
 
-.share_div{width:0px;height:0px;overflow:hidden;}
+
 
 /*禁止横屏样式开始*/
 .appSize{display:none;position:fixed;left:0;top:0;right:0;bottom:0;background:#182035;z-index:9999;}

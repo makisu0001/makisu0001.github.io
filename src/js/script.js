@@ -3,6 +3,40 @@ window.addEventListener('resize', function() {
 }, false);
 window.onload=function(){
     appSize();
+    var waveWidth = 300,
+    offset = 0,
+    waveHeight = 8,
+    waveCount = 5,
+    startX = -100,
+    startY = 104,
+    d2 = waveWidth / waveCount,
+    d = d2 / 2,
+    hd = d / 2,
+    c = document.getElementById("myCanvas"),
+    ctx = c.getContext("2d");
+
+    function tick() {
+        offset -= 5;
+        if (-1 * offset === d2) offset = 0;
+        ctx.clearRect(0, 0, c.width, c.height);
+        ctx.beginPath();
+        var offsetY = startY;
+        ctx.moveTo(startX - offset, offsetY);
+
+        for (var i = 0; i < waveCount; i++) {
+            var dx = i * d2;
+            var offsetX = dx + startX - offset;
+            ctx.quadraticCurveTo(offsetX + hd, offsetY + waveHeight, offsetX + d, offsetY);
+            ctx.quadraticCurveTo(offsetX + hd + d, offsetY - waveHeight, offsetX + d2, offsetY);
+        }
+        ctx.lineTo(startX + waveWidth, 300);
+        ctx.lineTo(startX, 300);
+        ctx.fill();
+
+        requestAnimationFrame(tick);
+    }
+
+    tick();
 };
 //禁止横屏
 function appSize(){
@@ -12,18 +46,3 @@ function appSize(){
         $(".appSize").hide();
     }
 }
-
-setShareInfo({
-    title:          'Anonymous ME:I Control My Own Destiny', // 分享标题
-    summary:        'Anonymous ME:I Control My Own Destiny', // 分享内容
-    pic:            'http://static.ilongyuan.cn/ld/AnonymousMe/img/shareicon.jpg', // 分享图片
-    url:            'anonymousme.jctest.ilongyuan.cn', // 分享链接
-    // 微信权限验证配置信息，若不在微信传播，可忽略
-    // WXconfig: {
-    //     swapTitleInWX: true, // 是否标题内容互换（仅朋友圈，因朋友圈内只显示标题）
-    //     appId: appId, // 公众号的唯一标识
-    //     timestamp: timestamp, // 生成签名的时间戳
-    //     nonceStr: nonceStr, // 生成签名的随机串
-    //     signature: signature // 签名
-    // }
-});

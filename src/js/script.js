@@ -15,6 +15,10 @@ window.onload=function(){
     c = document.getElementById("myCanvas"),
     ctx = c.getContext("2d");
 
+    c.width=document.body.clientWidth;
+    c.height=document.body.clientHeight;
+    console.log(c.width,c.height)
+
     function tick() {
         offset -= 5;
         if (-1 * offset === d2) offset = 0;

@@ -3,9 +3,8 @@ html,body{
   padding: 0px;
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
-
-
 
 /*禁止横屏样式开始*/
 .appSize{display:none;position:fixed;left:0;top:0;right:0;bottom:0;background:#182035;z-index:9999;}

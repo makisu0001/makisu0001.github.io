@@ -1,14 +1,31 @@
-window.addEventListener('resize', function() {
-    appSize();
-}, false);
-window.onload=function(){
-    appSize();
-    var waveWidth = 300,
+!(function(win, doc) {
+    appSize(); 
+    function setFontSize() {
+        var winWidth = window.innerWidth;
+        var winHeight = window.innerHeight;
+        doc.documentElement.style.fontSize = (winHeight /375) * 100 + 'px';
+        var c = document.getElementById("myCanvas");
+        c.width=document.body.clientWidth;
+        c.height=document.body.clientHeight;
+        draw();
+    }
+    var timer = null;
+    win.addEventListener('resize', function() {
+        clearTimeout(timer);
+        appSize();
+        timer = setTimeout(setFontSize, 0);
+    }, false);
+    setFontSize();
+    var winWidth = window.innerWidth;
+}(window, document));
+
+function draw(){
+    var waveWidth = parseInt(document.body.clientWidth/50+4)*50,
     offset = 0,
     waveHeight = 8,
-    waveCount = 5,
-    startX = -100,
-    startY = 104,
+    waveCount = 10,
+    startX = -1*waveWidth / waveCount,
+    startY = document.body.clientHeight/2,
     d2 = waveWidth / waveCount,
     d = d2 / 2,
     hd = d / 2,
@@ -17,8 +34,6 @@ window.onload=function(){
 
     c.width=document.body.clientWidth;
     c.height=document.body.clientHeight;
-    console.log(c.width,c.height)
-
     function tick() {
         offset -= 5;
         if (-1 * offset === d2) offset = 0;
@@ -33,15 +48,24 @@ window.onload=function(){
             ctx.quadraticCurveTo(offsetX + hd, offsetY + waveHeight, offsetX + d, offsetY);
             ctx.quadraticCurveTo(offsetX + hd + d, offsetY - waveHeight, offsetX + d2, offsetY);
         }
-        ctx.lineTo(startX + waveWidth, 300);
-        ctx.lineTo(startX, 300);
+        ctx.lineTo(document.body.clientWidth, c.height);
+        ctx.lineTo(startX, c.height);
+        ctx.fillStyle = '#0FF'
         ctx.fill();
 
         requestAnimationFrame(tick);
     }
 
     tick();
-};
+}
+
+$("#cocotree").on("click",function(){
+    console.log("coco")
+})
+$("#action").on("click",function(){
+    console.log("action")
+})
+
 //禁止横屏
 function appSize(){
     if($(window).width()<$(window).height()){

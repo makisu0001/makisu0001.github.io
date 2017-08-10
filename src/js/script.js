@@ -22,7 +22,7 @@
 function draw(){
     var waveWidth = parseInt(document.body.clientWidth/50+4)*50,
     offset = 0,
-    waveHeight = 8,
+    waveHeight = 15,
     waveCount = 10,
     startX = -1*waveWidth / waveCount,
     startY = document.body.clientHeight/2,
@@ -35,7 +35,7 @@ function draw(){
     c.width=document.body.clientWidth;
     c.height=document.body.clientHeight;
     function tick() {
-        offset -= 5;
+        offset -= 1;
         if (-1 * offset === d2) offset = 0;
         ctx.clearRect(0, 0, c.width, c.height);
         ctx.beginPath();
@@ -59,11 +59,13 @@ function draw(){
     tick();
 }
 
-$("#cocotree").on("click",function(){
+$("#cocotree").on("tap",function(){
     console.log("coco")
 })
-$("#action").on("click",function(){
-    console.log("action")
+$("#action").on("tap",function(){
+    $("#action").hide(function(){
+        $("#dialogue").show();
+    })
 })
 
 //禁止横屏

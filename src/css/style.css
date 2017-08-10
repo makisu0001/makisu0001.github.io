@@ -5,6 +5,10 @@ html,body{
     height: 100%;
     overflow: hidden;
 }
+.h{
+	font-size: .22rem;
+	font-weight: 700;
+}
 .container{
 	position: relative;
 }
@@ -17,6 +21,25 @@ html,body{
 	position: absolute;
 	left: -3%;
 	top:20%;
+}
+#dialogue{
+	width: 70%;
+	height: 70%;
+	background-color: #fff;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	font-size: .14rem;
+	display: none;
+}
+#dialogue h4{
+	font-size: .22rem;
+}
+#close{
+	position: absolute;
+	right: 0;
+	top: 0;
 }
 #action{
 	width: .4rem;

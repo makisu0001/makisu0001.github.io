@@ -59,10 +59,10 @@ function draw(){
     tick();
 }
 
-$("#cocotree").tap(function(){
+$("#cocotree").on("click",function(){
     console.log("coco")
 })
-$("#action").tap(function(){
+$("#action").on("click",function(){
     $("#action").hide(function(){
         $("#dialogue").show();
     })

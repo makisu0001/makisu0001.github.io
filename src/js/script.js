@@ -63,8 +63,13 @@ $("#cocotree").on("click",function(){
     console.log("coco")
 })
 $("#action").on("click",function(){
-    $("#action").hide(function(){
-        $("#dialogue").show();
+    $("#action").fadeOut(function(){
+        $("#dialogue").fadeIn();
+    })
+})
+$("#close").on("click",function(){
+    $("#dialogue").fadeOut(function(){
+        $("#action").fadeIn();
     })
 })
 

@@ -6,7 +6,9 @@
 	<script>
 		console.log(navigator.mediaDevices)
 		let dev = navigator.mediaDevices
-		alert(dev)
+		for (index in dev){
+			alert(dev.index)
+		}
 	</script>
 </head>
 <body>

@@ -9,7 +9,13 @@
 		// for (index in dev){
 		// 	alert(dev[index])
 		// }
-		navigator.mediaDevices.getUserMedia()
+		navigator.mediaDevices.getUserMedia({audio: true,video: false})
+.then(function(stream) {
+  /* use the stream */
+})
+.catch(function(err) {
+  /* handle the error */
+})
 	</script>
 </head>
 <body>
